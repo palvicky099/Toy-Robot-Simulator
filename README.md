@@ -33,7 +33,7 @@ The application that can read in commands of the following form
 - Any move that would cause the robot to fall must be ignored.
   
 ### Download APK from below URL
-- https://i.diawi.com/Ap6F7g
+- https://drive.google.com/file/d/1oyq-aTXyAr6-A7titnJ4-TiPJilydyDi/view?usp=sharing
 
 ### App Screenshots
 
