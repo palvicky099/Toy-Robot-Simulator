@@ -32,8 +32,12 @@ The application that can read in commands of the following form
 - REPORT will announce the X,Y and F of the robot.
 - Any move that would cause the robot to fall must be ignored.
   
+### Download APK from below URL
+- https://i.diawi.com/Ap6F7g
 
+### App Screenshots
 
+![alt screenshot](https://firebasestorage.googleapis.com/v0/b/vicky-resume.appspot.com/o/img.png?alt=media&token=3f96fba7-a347-4962-824c-338c64cac0ce)
 ### Get started
 - Make sure you have the Node and git,  installed on your machine
 
