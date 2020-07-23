@@ -1,0 +1,153 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+      Toy Robot Simulator
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" (click)="popupToggle()">
+        <ion-icon slot="icon-only" name="settings-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true" align="center">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="2.4" *ngFor="let item of blocks">
+        <ion-icon
+          name="airplane"
+          [ngStyle]="{'transform': 'rotate(' + currentPosition.direction + 'deg)'}"
+          *ngIf="item.isPresent && !isStarted"
+        ></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div class="controlBtn" *ngIf="!isStarted">
+    <ion-button
+      class="leftBtn"
+      disabled="{{isStarted}}"
+      (click)="changeDirection('left')"
+    >
+      <ion-icon name="return-up-back-outline" slot="icon-only"></ion-icon>
+    </ion-button>
+    <ion-button class="moveBtn" disabled="{{isStarted}}" (click)="move()"
+      >Move</ion-button
+    >
+    <ion-button
+      class="rightBtn"
+      disabled="{{isStarted}}"
+      (click)="changeDirection('right')"
+    >
+      <ion-icon name="return-up-forward-outline" slot="icon-only"></ion-icon>
+    </ion-button>
+    
+  </div>
+  <div align="center">
+    <ion-button
+      class="placeToyBtn"
+      shape="round"
+      expand="block"
+      (click)="startSimulation()" *ngIf="isStarted"
+      >Start</ion-button
+    >
+  </div>
+</ion-content>
+<div class="custom_modal" *ngIf="isResetPopup">
+  <div
+    class="custom_modal_inner boxShadowNone animate__animated {{resetAnimation}}"
+  >
+    <div class="filterContainer">
+      <h2>Select the position and diresction of Toy.</h2>
+      <div class="selectOption">
+        <h3>X coordinate</h3>
+        <span
+          [ngClass]="{selectedCls: tempPosition['x'] == 0}"
+          (click)="tempPosition['x'] = 0"
+          >0</span
+        >
+        <span
+          [ngClass]="{selectedCls: tempPosition['x'] == 1}"
+          (click)="tempPosition['x'] = 1"
+          >1</span
+        >
+        <span
+          [ngClass]="{selectedCls: tempPosition['x'] == 2}"
+          (click)="tempPosition['x'] = 2"
+          >2</span
+        >
+        <span
+          [ngClass]="{selectedCls: tempPosition['x'] == 3}"
+          (click)="tempPosition['x'] = 3"
+          >3</span
+        >
+        <span
+          [ngClass]="{selectedCls: tempPosition['x'] == 4}"
+          (click)="tempPosition['x'] = 4"
+          >4</span
+        >
+        <h3>Y coordinate</h3>
+        <span
+          [ngClass]="{selectedCls: tempPosition['y'] == 0}"
+          (click)="tempPosition['y'] = 0"
+          >0</span
+        >
+        <span
+          [ngClass]="{selectedCls: tempPosition['y'] == 1}"
+          (click)="tempPosition['y'] = 1"
+          >1</span
+        >
+        <span
+          [ngClass]="{selectedCls: tempPosition['y'] == 2}"
+          (click)="tempPosition['y'] = 2"
+          >2</span
+        >
+        <span
+          [ngClass]="{selectedCls: tempPosition['y'] == 3}"
+          (click)="tempPosition['y'] = 3"
+          >3</span
+        >
+        <span
+          [ngClass]="{selectedCls: tempPosition['y'] == 4}"
+          (click)="tempPosition['y'] = 4"
+          >4</span
+        >
+        <h3>Direction</h3>
+        <span
+          [ngClass]="{selectedCls: initialDirection == 3}"
+          (click)="initialDirection = 3"
+          >North</span
+        >
+        <span
+          [ngClass]="{selectedCls: initialDirection == 0}"
+          (click)="initialDirection = 0"
+          >East</span
+        >
+        <span
+          [ngClass]="{selectedCls:initialDirection == 1}"
+          (click)="initialDirection = 1"
+          >South</span
+        >
+        <span
+          [ngClass]="{selectedCls: initialDirection == 2}"
+          (click)="initialDirection = 2"
+          >West</span
+        >
+      </div>
+
+      <ion-row class="filterModelFooterRow">
+        <ion-col class="cancelModelBtn" (click)="popupToggle()">Cancel</ion-col>
+        <ion-col></ion-col>
+        <ion-col class="filterText" align="right" (click)="setupNewPosition()"
+          >Save</ion-col>
+      </ion-row>
+    </div>
+  </div>
+</div>
+
+<ion-footer *ngIf="!isStarted">
+  <ion-toolbar>
+    <ion-title
+      >Place  {{currentPosition.x}} , {{currentPosition.y}}, {{directionArray[this.initialDirection]}}
+    </ion-title>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,102 @@
+ion-content {
+        ion-grid {
+            margin: 10px;
+            ion-row {
+                ion-col {
+                    border-color: #ddd; 
+                    border-width: .01em; 
+                    border-style:solid; margin-bottom : -1px;
+                    background-color: rgb(33 150 243 / 10%);
+                    height: 60px;
+                    ion-icon {
+                        color: #3880ff;
+                         font-size: 40px;
+                    }
+                }
+            }
+        }
+
+    .controlBtn{
+        margin-top: 20px;
+        .leftBtn , .rightBtn{
+            height: 60px;
+            width: 60px;
+            padding: 0;
+        }
+        .moveBtn{
+            height: 100px;
+        }
+    }
+    .placeToyBtn{
+        height: 50px;
+        width: 50%;
+        margin-top: 20px;
+    }
+}
+ion-footer{
+    ion-title{
+        font-size: 26px;
+        text-align: center;
+    }
+}
+
+
+
+.custom_modal{
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background-color: rgba(0,0,0,0.5); 
+    z-index: 99;
+    .custom_modal_inner{
+        width: 100%;
+        background: white;
+        margin-top: 56px;
+        border-radius: 15px 15px 0px 0px;
+        position: absolute;
+        bottom: 0;
+      .filterContainer{
+          h2{
+            padding: 8px 10px;
+            font-size: 18px;
+            text-align: center;
+          }
+        .filterModelHeaderRow{
+          border-bottom: 1px solid #cccccc;
+        }
+        .cancelModelBtn{
+          opacity: 0.7;
+        }
+        .filterModelFooterRow{
+          border-top: 1px solid #cccccc;
+          padding: 22px;
+        }
+        .selectOption{
+            padding: 20px;
+            h3{
+             font-size: 14px;
+            }
+            span{
+                padding: 8px 15px 8px 15px;
+                border: 1px solid #ddd;
+                margin: 10px;
+                display: inline-flex;
+                border-radius: 2px;
+            }
+        }
+      }
+    }&.withOverlay{
+        background-color:rgba(0,0,0,0.5); 
+        .custom_modal_inner{
+          background-color:#fff; 
+          padding: 10px;
+        }
+      }
+  }
+  .selectedCls{
+    border: none;
+    background: #3880ff;
+    color: white;
+  }
